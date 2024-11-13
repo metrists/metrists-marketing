@@ -64,8 +64,8 @@ const Home: NextPage = () => {
   return (
     <Box>
       <SEO
-        title="Saas UI Landingspage"
-        description="Free SaaS landingspage starter kit"
+        title="Metrists - Continues Deploymenyt for Books"
+        description="Metrists is the Continues Publishing tool for Markdown files."
       />
       <Box>
         <HeroSection />

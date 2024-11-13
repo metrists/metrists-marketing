@@ -1,6 +1,6 @@
-import { ColorModeScript } from '@chakra-ui/react'
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
-import theme from '../theme'
+import { ColorModeScript } from "@chakra-ui/react";
+import NextDocument, { Html, Head, Main, NextScript } from "next/document";
+import theme from "../theme";
 
 export default class Document extends NextDocument {
   render() {
@@ -16,13 +16,12 @@ export default class Document extends NextDocument {
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="/static/favicons/favicon-32x32.png"
+            href="/static/favicons/favicon-96x96.ico"
           />
           <link
             rel="icon"
             type="image/png"
-            sizes="16x16"
-            href="/static/favicons/favicon-16x16.png"
+            href="/static/favicons/favicon.ico"
           />
           <link rel="manifest" href="/static/favicons/manifest.json" />
         </Head>
@@ -32,6 +31,6 @@ export default class Document extends NextDocument {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
