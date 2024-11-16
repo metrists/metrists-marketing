@@ -60,13 +60,13 @@ export const HighlightsTestimonialItem: React.FC<
     <HighlightsItem
       justifyContent="center"
       _dark={{ borderColor: "whiteAlpha.300" }}
-      p="4"
+      px="4"
       {...rest}
     >
       <Box
         bgGradient={`linear(to-br, ${transparentize(
           gradient[0],
-          0.8
+          0.8,
         )(theme)}, ${transparentize(gradient[1], 0.8)(theme)})`}
         opacity="1"
         position="absolute"

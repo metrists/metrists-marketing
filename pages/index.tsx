@@ -23,7 +23,6 @@ import { FallInPlace } from "components/motion/fall-in-place";
 import { Hero } from "components/hero";
 import { Link, Br } from "@saas-ui/react";
 import { Em } from "components/typography";
-import { NextjsLogo, ChakraLogo } from "components/logos";
 import {
   FiArrowRight,
   FiBox,
@@ -73,10 +72,6 @@ const Home: NextPage = () => {
         <HighlightsSection />
 
         <FeaturesSection />
-
-        <TestimonialsSection />
-
-        <PricingSection />
 
         <FaqSection />
       </Box>
@@ -147,15 +142,17 @@ const HighlightsSection = () => {
 
   return (
     <Highlights>
-      <HighlightsItem colSpan={[1, null, 2]} title="Core components">
+      <HighlightsItem title="1. Write in Markdown">
+        <Text color="muted" fontSize="lg">
+          Each new markdown file is a chapter, with Frontmatter for metadata.
+        </Text>
+      </HighlightsItem>
+      <HighlightsItem colSpan={[1, null, 2]} title="2. Execuate a Command">
         <VStack alignItems="flex-start" spacing="8">
           <Text color="muted" fontSize="xl">
-            Get started for free with <Em>30+ open source components</Em>.
-            Including authentication screens with Clerk, Supabase and Magic.
-            Fully functional forms with React Hook Form. Data tables with React
-            Table.
+            Execute a single command for Metrists to turn your markdown files
+            into a deployable Metrists project.
           </Text>
-
           <Flex
             rounded="full"
             borderWidth="1px"
@@ -169,10 +166,10 @@ const HighlightsSection = () => {
           >
             <Box>
               <Text color="yellow.400" display="inline">
-                yarn add
+                npx
               </Text>{" "}
               <Text color="cyan.300" display="inline">
-                @saas-ui/react
+                metrists publish
               </Text>
             </Box>
             <IconButton
@@ -187,50 +184,23 @@ const HighlightsSection = () => {
           </Flex>
         </VStack>
       </HighlightsItem>
-      <HighlightsItem title="Solid foundations">
-        <Text color="muted" fontSize="lg">
-          We don&apos;t like to re-invent the wheel, neither should you. We
-          selected the most productive and established tools in the scene and
-          build Saas UI on top of it.
-        </Text>
-      </HighlightsItem>
-      <HighlightsTestimonialItem
-        name="Renata Alink"
-        description="Founder"
-        avatar="/static/images/avatar.jpg"
-        gradient={["pink.200", "purple.500"]}
-      >
-        “Saas UI helped us set up a beautiful modern UI in no time. It saved us
-        hundreds of hours in development time and allowed us to focus on
-        business logic for our specific use-case from the start.”
-      </HighlightsTestimonialItem>
       <HighlightsItem
         colSpan={[1, null, 2]}
-        title="Start your next idea two steps ahead"
+        title="3. Push & Publish Your Book
+"
       >
         <Text color="muted" fontSize="lg">
-          We took care of all your basic frontend needs, so you can start
-          building functionality that makes your product unique.
+          Push your files to GitHub and connect your hosting service of choice,
+          with no no additional configuration.
         </Text>
         <Wrap mt="8">
           {[
-            "authentication",
-            "navigation",
-            "crud",
-            "settings",
-            "multi-tenancy",
-            "layouts",
-            "billing",
-            "a11y testing",
-            "server-side rendering",
-            "documentation",
-            "onboarding",
-            "storybooks",
-            "theming",
-            "upselling",
-            "unit testing",
-            "feature flags",
-            "responsiveness",
+            "Vercel",
+            "Netlify",
+            "Coolify",
+            "Railway",
+            "Self-host",
+            "Cloudflare (coming soon)",
           ].map((value) => (
             <Tag
               key={value}
@@ -244,6 +214,22 @@ const HighlightsSection = () => {
           ))}
         </Wrap>
       </HighlightsItem>
+      <HighlightsTestimonialItem
+        name="That's it"
+        gradient={["pink.200", "purple.500"]}
+      >
+        <VStack alignItems="start">
+          <Text>
+            Push your Markdown files to GitHub and let Continues Deployment deal
+            handle rest.
+          </Text>
+          <Box mt="3">
+            <ButtonLink colorScheme="primary" size="md" href="/docs">
+              Documentation
+            </ButtonLink>
+          </Box>
+        </VStack>
+      </HighlightsTestimonialItem>
     </Highlights>
   );
 };
@@ -252,29 +238,26 @@ const FeaturesSection = () => {
   return (
     <Features
       id="features"
-      title={
-        <Heading
-          lineHeight="short"
-          fontSize={["2xl", null, "4xl"]}
-          textAlign="left"
-          as="p"
-        >
-          Not your standard
-          <Br /> dashboard template.
-        </Heading>
-      }
-      description={
-        <>
-          Saas UI Pro includes everything you need to build modern frontends.
-          <Br />
-          Use it as a template for your next product or foundation for your
-          design system.
-        </>
-      }
       align="left"
-      columns={[1, 2, 3]}
+      columns={{
+        base: 1,
+        md: 2,
+        lg: 4,
+      }}
+      px={{
+        base: 4,
+        md: 8,
+        lg: 8,
+      }}
       iconSize={4}
       features={[
+        {
+          title: "Components.",
+          icon: FiBox,
+          description:
+            "All premium components are available on a private NPM registery, no more copy pasting and always up-to-date.",
+          variant: "inline",
+        },
         {
           title: "Components.",
           icon: FiBox,
@@ -287,48 +270,6 @@ const FeaturesSection = () => {
           icon: FiLock,
           description:
             "Example apps in Next.JS, Electron. Including authentication, billing, example pages, everything you need to get started FAST.",
-          variant: "inline",
-        },
-        {
-          title: "Documentation.",
-          icon: FiSearch,
-          description:
-            "Extensively documented, including storybooks, best practices, use-cases and examples.",
-          variant: "inline",
-        },
-        {
-          title: "Onboarding.",
-          icon: FiUserPlus,
-          description:
-            "Add user onboarding flows, like tours, hints and inline documentation without breaking a sweat.",
-          variant: "inline",
-        },
-        {
-          title: "Feature flags.",
-          icon: FiFlag,
-          description:
-            "Implement feature toggles for your billing plans with easy to use hooks. Connect Flagsmith, or other remote config services once you're ready.",
-          variant: "inline",
-        },
-        {
-          title: "Upselling.",
-          icon: FiTrendingUp,
-          description:
-            "Components and hooks for upgrade flows designed to make upgrading inside your app frictionless.",
-          variant: "inline",
-        },
-        {
-          title: "Themes.",
-          icon: FiToggleLeft,
-          description:
-            "Includes multiple themes with darkmode support, always have the perfect starting point for your next project.",
-          variant: "inline",
-        },
-        {
-          title: "Generators.",
-          icon: FiTerminal,
-          description:
-            "Extend your design system while maintaininig code quality and consistency with built-in generators.",
           variant: "inline",
         },
         {

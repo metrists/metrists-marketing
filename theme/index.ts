@@ -156,8 +156,6 @@ const styles = {
   }),
 };
 
-console.log(theme);
-
 export default extendTheme(
   {
     config: {
