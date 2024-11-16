@@ -252,36 +252,31 @@ const FeaturesSection = () => {
       iconSize={4}
       features={[
         {
-          title: "Components.",
+          title: "Host Agnostic.",
           icon: FiBox,
           description:
-            "All premium components are available on a private NPM registery, no more copy pasting and always up-to-date.",
+            "Metrists is merely a tool that runs in your CI/CD. We don't care where you host your book.",
           variant: "inline",
         },
         {
-          title: "Components.",
+          title: "Output-Agnostic.",
           icon: FiBox,
           description:
-            "All premium components are available on a private NPM registery, no more copy pasting and always up-to-date.",
+            "Though we only support web outputs right now, we'll soon support ePub files and audiobook.",
           variant: "inline",
         },
         {
-          title: "Starterkits.",
+          title: "Intuitive.",
           icon: FiLock,
           description:
-            "Example apps in Next.JS, Electron. Including authentication, billing, example pages, everything you need to get started FAST.",
+            "With sensible defaults, Metrists stays out of your way. You'll rarely need to look at the docs.",
           variant: "inline",
         },
         {
-          title: "Monorepo.",
+          title: "Commercially Inviable",
           icon: FiCode,
-          description: (
-            <>
-              All code is available as packages in a high-performance{" "}
-              <Link href="https://turborepo.com">Turborepo</Link>, you have full
-              control to modify and adjust it to your workflow.
-            </>
-          ),
+          description:
+            "While we'd love to make products around Metrists, we would (and will probably have to) do it for free!",
           variant: "inline",
         },
       ]}
