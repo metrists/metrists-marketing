@@ -16,6 +16,7 @@ const siteConfig = {
   header: {
     links: [
       {
+        id: "documentation",
         label: "Documentation",
         href: "/docs",
         variant: "primary",

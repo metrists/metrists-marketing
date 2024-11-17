@@ -24,7 +24,7 @@ const Navigation: React.FC = () => {
       .map(({ id }) => `[id="${id}"]`),
     {
       threshold: 0.75,
-    }
+    },
   );
 
   const mobileNavBtnRef = React.useRef<HTMLButtonElement>();
