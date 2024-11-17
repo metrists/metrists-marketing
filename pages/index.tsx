@@ -145,7 +145,7 @@ const HeroSection: React.FC = () => {
                     />
                   }
                 >
-                  npx metrists init
+                  npx metrists watch
                 </Button>
               </ButtonGroup>
             </FallInPlace>
@@ -157,7 +157,7 @@ const HeroSection: React.FC = () => {
 };
 
 const HighlightsSection = () => {
-  const { value, onCopy, hasCopied } = useClipboard("yarn add @saas-ui/react");
+  const { value, onCopy, hasCopied } = useClipboard("npx metrists watch");
 
   return (
     <Highlights>
@@ -188,7 +188,7 @@ const HighlightsSection = () => {
                 npx
               </Text>{" "}
               <Text color="cyan.300" display="inline">
-                metrists publish
+                metrists watch
               </Text>
             </Box>
             <IconButton
