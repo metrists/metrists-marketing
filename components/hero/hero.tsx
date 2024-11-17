@@ -15,9 +15,9 @@ interface HeroProps extends Omit<FlexProps, "title"> {
 export const Hero = ({ title, description, children, ...rest }: HeroProps) => {
   return (
     <Flex alignItems="center" {...rest}>
-      <Container>
-        <VStack spacing={[4, null, 8]} alignItems="flex-start">
-          <Text as="h1" textStyle="h1" textAlign="center">
+      <Container maxW="100%">
+        <VStack spacing={[4, null, 8]} alignItems="flex-start" maxW="100%">
+          <Text as="h1" textStyle="h1" textAlign="justify" fontSize="7xl">
             {title}
           </Text>
           <Text
@@ -26,6 +26,10 @@ export const Hero = ({ title, description, children, ...rest }: HeroProps) => {
             align="center"
             color="gray.500"
             _dark={{ color: "gray.400" }}
+            textAlign={{
+              base: "left",
+              md: "justify",
+            }}
           >
             {description}
           </Text>

@@ -8,7 +8,7 @@ import {
   Button,
   ButtonGroup,
   Icon,
-  Heading,
+  useBreakpointValue,
   Text,
   Wrap,
   Tag,
@@ -80,6 +80,7 @@ const Home: NextPage = () => {
 };
 
 const HeroSection: React.FC = () => {
+  const fullWidthButtons = useBreakpointValue({ base: true, md: false });
   return (
     <Box position="relative" overflow="hidden">
       <BackgroundGradient height="100%" zIndex="-1" />
@@ -89,13 +90,17 @@ const HeroSection: React.FC = () => {
             id="home"
             justifyContent="flex-start"
             px="0"
+            width="100%"
             title={
-              <FallInPlace>Write in Markdown Continuesly Publish.</FallInPlace>
+              <FallInPlace>
+                Write Markdown,
+                <br /> Continuesly Publish.
+              </FallInPlace>
             }
             description={
               <FallInPlace delay={0.4} fontWeight="medium">
-                Execute a command in your markdown directory to transform your
-                files into a deployable and downloadable eBook.
+                Publish your books through multiple channels, by simply pushing
+                it to GitHub.
               </FallInPlace>
             }
           >
@@ -107,12 +112,26 @@ const HeroSection: React.FC = () => {
                 width="100%"
                 justifyContent="center"
               >
-                <ButtonLink colorScheme="primary" size="lg" href="/signup">
+                <ButtonLink
+                  colorScheme="primary"
+                  size="lg"
+                  href="/docs"
+                  linkProps={{
+                    //@ts-ignore
+                    style: {
+                      width: fullWidthButtons ? "100%" : "auto",
+                    },
+                  }}
+                >
                   Documentation
                 </ButtonLink>
                 <Button
                   size="lg"
                   variant="outline"
+                  display={{
+                    base: "none",
+                    md: "inline",
+                  }}
                   leftIcon={
                     <Icon
                       as={FiCopy}
