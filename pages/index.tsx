@@ -357,7 +357,7 @@ export async function getStaticProps() {
         title: "Support us by becoming a stargazer! 🚀 ",
         description:
           '<img src="https://img.shields.io/github/stars/saas-js/saas-ui.svg?style=social&label=Star" />',
-        href: "https://github.com/saas-js/saas-ui",
+        href: "https://github.com/metrists/metrists",
         action: false,
       },
     },

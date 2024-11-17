@@ -1,3 +1,5 @@
+import nextra from "nextra";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -6,12 +8,12 @@ const nextConfig = {
       test: /\.svg$/,
       use: [
         {
-          loader: '@svgr/webpack',
+          loader: "@svgr/webpack",
           options: {
             svgoConfig: {
               plugins: [
                 {
-                  name: 'removeViewBox',
+                  name: "removeViewBox",
                   active: false,
                 },
               ],
@@ -19,9 +21,14 @@ const nextConfig = {
           },
         },
       ],
-    })
-    return config
+    });
+    return config;
   },
-}
+};
 
-export default nextConfig
+const withNextra = nextra({
+  theme: "nextra-theme-docs",
+  themeConfig: "./theme.config.jsx",
+});
+
+export default withNextra(nextConfig);

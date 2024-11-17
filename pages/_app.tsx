@@ -6,20 +6,22 @@ import { Layout } from "components/layout";
 
 import theme from "../theme";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   const { announcement, header, footer } = pageProps;
+  //Render layout if not path is not docs, otherwise render the component alone
+  if (router.pathname.startsWith("/docs")) {
+    return <Component {...pageProps} />;
+  }
 
   return (
     <SaasProvider theme={theme}>
-      <AuthProvider>
-        <Layout
-          announcementProps={announcement}
-          headerProps={header}
-          footerProps={footer}
-        >
-          <Component {...pageProps} />
-        </Layout>
-      </AuthProvider>
+      <Layout
+        announcementProps={announcement}
+        headerProps={header}
+        footerProps={footer}
+      >
+        <Component {...pageProps} />
+      </Layout>
     </SaasProvider>
   );
 }
