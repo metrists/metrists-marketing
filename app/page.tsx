@@ -47,17 +47,15 @@ export default function WritingLanding() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Why <span className="italic text-[#1D4528]">words</span> matter
+              Why <span className="italic text-[#1D4528]">Metrists</span> matters
             </h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              In a world saturated with content, the difference between being heard and being ignored lies in the craft
-              of your words.
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">High-quality writing isn’t one-and-done. Metrists makes it easy to keep it alive.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 md:gap-12">
             <div className="text-center">
-              <h4 className="text-xl font-bold text-gray-900 mb-4">Clarity</h4>
+              <h4 className="text-xl font-bold text-gray-900 mb-4">Simplicity </h4>
               <p className="text-gray-600 leading-relaxed">
                 Cut through the noise with precise, purposeful language that communicates your message without
                 ambiguity.
@@ -83,7 +81,9 @@ export default function WritingLanding() {
       {/* Footer */}
       <footer className="px-6 py-12 border-t border-gray-200 bg-[#F8F6F0]">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-gray-500 text-sm">© 2024 Wordcraft. Crafted with intention.</p>
+          <p className="text-gray-500 text-sm">© {
+            new Date().getFullYear()
+          } Metrists. Proudly Open-Source. </p>
         </div>
       </footer>
     </div>
