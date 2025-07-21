@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+import nextra from 'nextra'
+ 
+// Set up Nextra with its configuration for docs pages only
+const withNextra = nextra({
+  theme: 'nextra-theme-docs',
+  themeConfig: './theme.config.tsx'
+})
+ 
+// Export the final Next.js config with Nextra included
+export default withNextra({
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -9,6 +18,10 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-}
-
-export default nextConfig
+  // Enable both app and pages router
+  experimental: {
+    appDir: true,
+  },
+  // Configure page extensions for both routers
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+})
