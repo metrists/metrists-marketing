@@ -83,7 +83,7 @@ export default function WritingLanding() {
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-gray-500 text-sm">© {
             new Date().getFullYear()
-          } Metrists. Proudly Open-Source. </p>
+          } Metrists. <Link href="https://github.com/metrists/metrists" target="_blank" rel="noopener noreferrer" className="hover:text-[#1D4528] transition-colors duration-200">Proudly Open-Source</Link>. </p>
         </div>
       </footer>
     </div>
