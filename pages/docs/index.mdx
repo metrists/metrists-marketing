@@ -1,3 +1,233 @@
-# Title
+# Getting Started
 
-Here are some contens
+Metrists is a Continuous Deployment pipeline for books that transforms your markdown files into beautiful web exports, with epub and audiobook formats coming soon. It makes book publishing incremental, fast, and automated.
+
+## Quick Start
+
+The fastest way to get started is with the `--noob` flag, which provides beginner-friendly output:
+
+```bash copy
+mkdir my-book
+cd my-book
+touch chapter-1.md
+npx metrists watch --noob
+```
+
+## Installation
+
+### Prerequisites
+
+- **Node.js**: Version 18.17.0 or higher
+- **npm**: Comes with Node.js
+
+### Global Installation (Optional)
+
+```bash copy
+npm install -g metrists
+```
+
+After global installation, you can use `metrists` instead of `npx metrists`.
+
+## Creating Your First Book
+
+### Quick Setup (Recommended)
+
+Create a new directory and start developing immediately:
+
+```bash copy
+mkdir my-book
+cd my-book
+touch chapter-1.md
+npx metrists watch --noob
+```
+
+Metrists will automatically:
+- Initialize your project with the default theme
+- Create configuration files
+- Start the development server
+- Open your book in the browser
+
+## Project Structure
+
+After initialization, your project will have:
+
+```
+my-book/
+├── .metristsrc          # Configuration file
+├── meta.md              # Book metadata and description
+└── chapter-2.md         # Chapter files 
+```
+
+### Book Metadata (meta.md)
+
+The `meta.md` file is automatically created during initialization and contains your book's essential information:
+
+```markdown
+---
+title: My First Book
+author: Parsa
+date: '2025-08-29'
+tags:
+  - fiction
+  - adventure
+---
+
+This is the description or blurb for your book. It appears on the book's landing page and provides readers with an overview of what your book is about.
+
+Write a compelling summary that will engage your readers and make them want to continue reading.
+```
+
+## Writing Your Content
+
+### Chapter Files
+
+Create your book content using standard markdown files in the root directory:
+
+```markdown
+# Chapter 1: Introduction
+
+Welcome to my book! This is written in **markdown** and supports:
+
+- Lists and bullet points
+- **Bold** and *italic* text
+- Links to [other sites](https://example.com)
+- Images and diagrams
+- Code blocks with syntax highlighting
+
+## Subheading
+
+Your content here...
+```
+
+### Adding Assets
+
+Metrists gives you complete flexibility in organizing your assets:
+
+#### Images
+Place images anywhere and reference them with the correct path:
+
+```markdown
+# In root directory
+![Cover Image](./cover.png)
+
+# In subdirectories
+![Diagram](./images/architecture.jpg)
+![Screenshot](./assets/ui/screenshot.png)
+```
+
+#### Special Files
+- **Favicon**: Add `favicon.ico` to the root for a custom site icon
+- **Cover**: Add `cover.png`, `cover.jpg`, `cover.jpeg`, `cover.webp`, or `cover.gif` for your book cover
+
+#### Supported Asset Types
+All common file types are supported: images, PDFs, videos, audio files, etc.
+
+## Development Workflow
+
+### 1. Start Development Server
+
+```bash
+npx metrists watch --noob
+```
+
+This automatically initializes if needed and starts the development server with live reload.
+
+### 2. Edit Your Content
+
+Modify your markdown files and assets. Changes are automatically synchronized and the browser will refresh to show updates in real-time.
+
+### 3. Publish When Ready
+
+When your book is ready for the world, use the publish command to deploy it. All supported platforms come with automatic CI/CD setup, so you can just connect your Git repository and every push will trigger a new deployment.
+
+
+
+## Publishing Your Book
+
+Metrists supports multiple hosting platforms and handles deployment automatically:
+
+```bash
+npx metrists publish vercel
+```
+
+This will:
+1. Automatically initialize if needed
+2. Build your book for production
+3. Create platform-specific configuration files
+4. Deploy to the specified platform
+
+### Supported Platforms
+
+- **Vercel** - `npx metrists publish vercel`
+- **Netlify** - `npx metrists publish netlify`
+- **Railway** - `npx metrists publish railway`
+- **Coolify** - `npx metrists publish coolify`
+- **AWS S3** - `npx metrists publish s3`
+
+*Note: Railway and Coolify both use the same underlying deployment method but are recognized as separate commands for convenience.*
+
+## CLI Commands Reference
+
+### Core Commands
+
+All commands automatically initialize if the project hasn't been set up yet:
+
+- `watch` (`w`) - Start development server with live reload
+- `build` (`b`) - Build production version (requires `-o <output-dir>`)
+- `publish` (`p`) - Deploy to hosting platform
+- `init` (`i`) - Explicitly initialize a new Metrists project
+- `prune` - Clean build artifacts
+
+### Global Options
+
+- `--noob` - Beginner-friendly output (recommended for new users)
+- `--verbose` - Detailed logging for troubleshooting
+- `--version` - Show version information
+- `--help` - Show help for commands
+
+### Examples
+
+```bash
+# Start development (auto-initializes)
+npx metrists watch --noob
+
+# Build for production (auto-initializes)
+npx metrists build -o ./dist --noob
+
+# Publish to platform (auto-initializes and builds)
+npx metrists publish netlify --noob
+```
+
+## Current Theme
+
+Metrists currently uses the **`metrists-theme-next`** theme, which provides:
+
+- Clean, modern design
+- Responsive layout for all devices  
+- Dark/light mode support
+- Syntax highlighting for code blocks
+- Fast, optimized static site generation
+
+More themes and customization options are planned for future releases.
+
+## What's Next?
+
+- **[Configuration](/docs/configuration)** - Customize your book's settings and hosting
+- **[Vercel Deployment](/docs/vercel)** - Detailed Vercel deployment guide
+- **[Netlify Deployment](/docs/netlify)** - Detailed Netlify deployment guide
+- **[Railway Deployment](/docs/railway)** - Deploy to Railway
+- **[AWS S3 Deployment](/docs/aws-s3)** - Deploy to AWS S3
+
+## Export Formats
+
+### Currently Available
+- **Static Web Export** - Modern, responsive websites optimized for performance
+
+### Coming Soon
+- **EPUB** - Standard ebook format for e-readers
+- **Audiobook** - AI-generated audio versions
+
+## Getting Help
+
+- **Documentation**: Visit [metrists.com/docs](https://metrists.com/docs)
+- **Issues**: Report bugs and request features on [GitHub Issues](https://github.com/metrists/metrists/issues)
