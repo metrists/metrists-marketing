@@ -1,0 +1,85 @@
+
+# Publishing Your Book
+
+Metrists can build a web version of your book and create the right configuration for all popular hosting providers.
+
+```bash
+npx metrists publish [host]
+```
+
+This will:
+1. Build your book for production
+2. Create platform-specific configuration files
+
+## Supported Platforms
+
+### Vercel
+
+```bash
+npx metrists publish vercel
+```
+
+**What it does:**
+- Creates a `vercel.json` configuration file in your project root
+- Sets up the build command and output directory for Vercel's deployment system
+- Configures Vercel to use your book's build output for static hosting
+
+The generated `vercel.json` includes:
+- `buildCommand`: The command to build your book
+- `outputDirectory`: Where the built files are located
+
+### Netlify
+
+```bash
+npx metrists publish netlify
+```
+
+**What it does:**
+- Creates a `netlify.toml` configuration file in your project root
+- Configures Netlify's build settings and publish directory
+- Sets up the build command for Netlify's continuous deployment
+
+The generated `netlify.toml` includes:
+- `[build]` section with publish directory and build command
+- Proper configuration for static site hosting
+
+### Railway
+
+```bash
+npx metrists publish railway
+```
+
+**What it does:**
+- Creates a `nixpacks.toml` configuration file (Railway uses Nixpacks for builds)
+- Sets up Node.js as the provider
+- Configures build phases and start command
+- Uses `npx serve -s` to serve your built book as a static site
+
+The generated configuration includes:
+- Node.js provider setup
+- Build phase with your book's build command
+- Start command to serve static files
+
+### Coolify
+
+```bash
+npx metrists publish coolify
+```
+
+**What it does:**
+- Creates a `nixpacks.toml` configuration file (same as Railway)
+- Configures Coolify's build system using Nixpacks
+- Sets up static file serving for your book
+
+Since Coolify also uses Nixpacks, it generates the same configuration as Railway with Node.js provider and static file serving.
+
+### AWS S3
+
+```bash
+npx metrists publish s3
+```
+
+**What it does:**
+- Creates a [SST](https://sst.dev/) configuration to create all reqiured resources on AWS.
+- Creates the Github Action workflow files to deploy to S3 on each push.
+
