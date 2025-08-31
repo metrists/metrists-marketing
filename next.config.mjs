@@ -18,11 +18,5 @@ export default withNextra({
   images: {
     unoptimized: true,
   },
-  // Enable both app and pages router
-  experimental: {
-    appDir: true,
-  },
-  // Configure page extensions for both routers
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
-  // Redirect /docs to /docs/v1
 });

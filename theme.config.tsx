@@ -27,14 +27,8 @@ const config: DocsThemeConfig = {
     link: "https://github.com/metrists/metrists",
   },
   docsRepositoryBase: "https://github.com/metrists/metrists/tree/main",
-  footer: false,
-  primaryHue: {
-    dark: 127,
-    light: 127,
-  },
-  primarySaturation: {
-    dark: 34,
-    light: 34,
+  footer: {
+    component: () => null,
   },
   useNextSeoProps() {
     const { asPath } = useRouter();
@@ -51,66 +45,6 @@ const config: DocsThemeConfig = {
     <>
       <meta name="theme-color" content="#1D4528" />
       <meta name="msapplication-TileColor" content="#1D4528" />
-      <style jsx global>{`
-        :root {
-          --nextra-primary-hue: 127deg;
-          --nextra-primary-saturation: 34%;
-          --nextra-bg: #fefcf8;
-        }
-        [data-theme="dark"] {
-          --nextra-bg: #1a1a1a;
-        }
-        .nextra-nav-container {
-          background-color: #f8f6f0 !important;
-          border-bottom: 1px solid #e5e5e5;
-        }
-        .dark .nextra-nav-container {
-          background-color: #1a1a1a !important;
-        }
-        .nextra-content {
-          font-family: var(--font-inter) !important;
-        }
-        .nextra-sidebar {
-          background-color: #f8f6f0 !important;
-        }
-        .dark .nextra-sidebar {
-          background-color: #1a1a1a !important;
-        }
-        body {
-          background-image: radial-gradient(
-            circle at 1px 1px,
-            rgba(0, 0, 0, 0.02) 1px,
-            transparent 0
-          ) !important;
-          background-size: 20px 20px !important;
-        }
-        body::before {
-          content: "";
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: radial-gradient(
-              circle at 25% 25%,
-              rgba(139, 69, 19, 0.01) 0%,
-              transparent 50%
-            ),
-            radial-gradient(
-              circle at 75% 75%,
-              rgba(160, 82, 45, 0.01) 0%,
-              transparent 50%
-            ),
-            linear-gradient(
-              45deg,
-              transparent 49%,
-              rgba(139, 69, 19, 0.005) 50%,
-              transparent 51%
-            );
-          pointer-events: none;
-          z-index: -1;
-        }
-      `}</style>
     </>
   ),
   color: {
@@ -120,10 +54,6 @@ const config: DocsThemeConfig = {
       light: 28,
       dark: 65,
     },
-  },
-  backgroundColor: {
-    light: "rgb(254,252,248)",
-    dark: "rgb(26,26,26)",
   },
 };
 
